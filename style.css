@@ -1,0 +1,155 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp (1.5rem,5vw,3rem);
+    color: darkslategray;
+    background-color:whitesmoke;
+}
+
+.introduction {
+    background-color: lightslategray;
+    padding: 2rem 1rem;
+    text-align: center;
+    color: white;
+    border-radius: 20px  20px 20px 20px;
+    max-width: 90%;
+    width: 100%;
+    margin: 2rem auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 0 0 20px black;
+
+}
+
+
+.card {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  background-image: url(files/mosaico.jpg);
+  background-size: cover ;
+  width: min(300px, 90vw);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  line-height: 1.4;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inside-card {
+    position:relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+
+img, .card-front {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1rem;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory;
+}
+
+.card {
+ width: 290px; 
+    height: 385px;
+    flex-shrink: 0; 
+    perspective: 1000px;
+    scroll-snap-align: start; 
+}
+
+.inside-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .inside-card {
+  transform: rotateY(180deg);
+}
+
+
+.card-front, .card-back {
+  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+.card-front {
+  background-color: rgb(93, 102, 130);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front h2 {
+  margin: 1rem 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-shadow: 0 0 20px black ;
+}
+
+.card-front img {
+  width: 80%;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.card-back {
+  background-color: white;
+  color: #333;
+  transform: rotateY(180deg);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro {
+    text-align: center;
+    max-width: 800px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    width: 290px;
+    height: 385px;
+    flex-shrink: 0;
+  }
+}
+
